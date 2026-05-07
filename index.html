@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoliの个人空间</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Mac登录界面 -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-content">
+            <div class="login-avatar">
+                <img src="avatar.png" alt="用户头像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span>赵</span>
+            </div>
+            <h2 class="login-name">赵晓明</h2>
+            <button class="login-button" id="enterButton">点击进入</button>
+        </div>
+    </div>
+
+    <!-- Mac桌面 -->
+    <div class="desktop" id="desktop" style="display: none;">
+        <!-- Mac桌面：纯净背景，所有功能都在底部导航栏 -->
+            <!-- 教育背景页面 -->
+            <div class="content-page" id="educationPage" style="display: none;">
+                <div class="page-container education-container">
+                    <div class="education-content">
+                        <div class="education-item modern-edu-item">
+                            <div class="school-title-row">
+                                <h2>马来亚大学 (QS 58)</h2>
+                                <span class="education-year-badge">2024.10 - 2025.11</span>
+                            </div>
+                            <div class="education-highlights">
+                                <div class="highlight-badge gpa-excellent">GPA 3.94/4.0</div>
+                                <div class="highlight-badge degree-highlight">图书馆与信息科学硕士</div>
+                            </div>
+                            <div class="education-content-unified">
+                                <div class="course-section">
+                                    <h4>主修课程：</h4>
+                                    <div class="course-list">
+                                        <span class="course-item">信息管理</span>
+                                        <span class="course-item">网页出版</span>
+                                        <span class="course-item">数字图书馆</span>
+                                        <span class="course-item">数字人文</span>
+                                        <span class="course-item">信息素养服务</span>
+                                        <span class="course-item">信息管理技术</span>
+                                    </div>
+                                </div>
+                                <div class="project-section">
+                                    <h4>课程项目：</h4>
+                                    <div class="project-tags">
+                                        <span class="project-tag">搭建数字图书馆</span>
+                                        <span class="project-tag">数字人文可视化项目</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="education-item modern-edu-item">
+                            <div class="school-title-row">
+                                <h2>中南财经政法大学 (211)</h2>
+                                <span class="education-year-badge">2017.09 - 2021.06</span>
+                            </div>
+                            <div class="education-highlights">
+                                <div class="highlight-badge gpa-good">GPA 3.49/4.0 (前20%)</div>
+                                <div class="highlight-badge degree-highlight">物流管理学士</div>
+                            </div>
+                            <div class="education-content-unified">
+                                <div class="course-section">
+                                    <h4>主修课程：</h4>
+                                    <div class="course-list">
+                                        <span class="course-item">物流管理</span>
+                                        <span class="course-item">市场营销</span>
+                                        <span class="course-item">微观经济学</span>
+                                        <span class="course-item">采购学</span>
+                                        <span class="course-item">概率论</span>
+                                        <span class="course-item">统计学</span>
+                                    </div>
+                                </div>
+                                <div class="award-section">
+                                    <h4>获奖情况：</h4>
+                                    <div class="award-tags">
+                                        <span class="award-tag">优秀奖学金二等奖</span>
+                                        <span class="award-tag">优秀奖学金三等奖</span>
+                                        <span class="award-tag">优秀共青团员</span>
+                                        <span class="award-tag">三好学生</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作经历页面 -->
+            <div class="content-page" id="experiencePage" style="display: none;">
+                <div class="page-container">
+                    <h1 class="page-title">💼 工作经历</h1>
+                    <div class="experience-content">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h2>广东溢达纺织有限公司</h2>
+                                <span class="experience-date">2022.05 - 2024.09</span>
+                            </div>
+                            <h3>物流部主管</h3>
+                            <div class="key-highlights">
+                                <div class="highlight">
+                                    <span class="highlight-number">30%</span>
+                                    <span class="highlight-label">IHD降低</span>
+                                </div>
+                                <div class="highlight">
+                                    <span class="highlight-number">10%</span>
+                                    <span class="highlight-label">生产力提升</span>
+                                </div>
+                                <div class="highlight">
+                                    <span class="highlight-number">15</span>
+                                    <span class="highlight-label">分钟/日效率提升</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul>
+                                    <li><strong>需求预测与采购计划优化</strong>：负责化工料的采购需求分析、供应商交付周期管理与申购计划制定。通过分析历史耗用数据优化预测模型，有效保障供应稳定，并将库存持有天数（IHD）同比降低30%，显著降低了库存成本</li>
+                                    <li><strong>仓储运营与安全管理</strong>：全面负责化工仓与五金仓日常管理，推行月度安全培训机制，规范现场7S操作标准，及时处理各类异常问题，合理调配人力资源，推动仓库整体生产力提升约10%</li>
+                                    <li><strong>流程标准化与效率提升</strong>：系统梳理仓库各岗位工作内容，编制标准化SOP操作手册，针对问题环节实施流程优化，平均每日节约人工操作时间约15分钟，提升作业效率</li>
+                                    <li><strong>数据可视化与绩效监控</strong>：通过量化员工每日工作任务，结合仓库进出库动态数据，设计并实施Power BI及简道云可视化看板，实时展示仓库产能及任务完成进度，为管理决策与资源统筹提供直观数据支持</li>
+                                </ul>
+                            </div>
+                            <div class="experience-tech">
+                                <span>需求预测</span>
+                                <span>库存管理</span>
+                                <span>7S管理</span>
+                                <span>SOP标准化</span>
+                                <span>可视化</span>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h2>猿辅导</h2>
+                                <span class="experience-date">2019.11 - 2020.02</span>
+                            </div>
+                            <h3>内容运营实习生</h3>
+                            <div class="key-highlights">
+                                <div class="highlight">
+                                    <span class="highlight-number">500+</span>
+                                    <span class="highlight-label">图片/日处理量</span>
+                                </div>
+                                <div class="highlight">
+                                    <span class="highlight-number">1000+</span>
+                                    <span class="highlight-label">音频/日处理量</span>
+                                </div>
+                                <div class="highlight">
+                                    <span class="highlight-number">100%</span>
+                                    <span class="highlight-label">直播保障成功率</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul>
+                                    <li>负责日均约500张图片与近千条音频的数据标注与质检工作，主动识别并反馈数据中的共性问题和优化建议，助力智能识别算法准确度持续提升</li>
+                                    <li>疫情期间，高效协助团队完成在人民日报等官方媒体平台的直播课程推流与保障工作，确保课程顺利录制与播出</li>
+                                </ul>
+                            </div>
+                            <div class="experience-tech">
+                                <span>数据标注</span>
+                                <span>质量检验</span>
+                                <span>直播推流</span>
+                                <span>媒体运营</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 校园经历页面 -->
+            <div class="content-page" id="campusPage" style="display: none;">
+                <div class="page-container campus-container">
+                    <h1 class="page-title">🏫 校园经历</h1>
+                    <div class="campus-content">
+                        <div class="campus-item">
+                            <div class="campus-header">
+                                <h2>院团委科研部 干事</h2>
+                                <span class="campus-date">2017.10 - 2018.10</span>
+                            </div>
+                            <div class="campus-details">
+                                <ul>
+                                    <li>协助举办了十余场讲座及典礼</li>
+                                    <li>撰写策划案10份，大型活动主持稿3篇</li>
+                                    <li>制作宣传推文超15篇</li>
+                                    <li>所在部门荣获学院"十佳团队"称号</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="campus-item">
+                            <div class="campus-header">
+                                <h2>物流与供应链管理协会 副会长</h2>
+                                <span class="campus-date">2018.10 - 2019.10</span>
+                            </div>
+                            <div class="campus-details">
+                                <ul>
+                                    <li>组织会员参观武商量贩</li>
+                                    <li>协助举办宣传讲座</li>
+                                    <li>组织招新活动和其他企业参观活动</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 获奖经历页面 -->
+            <div class="content-page" id="certificatesPage" style="display: none;">
+                <div class="page-container certificate-container">
+                    <h1 class="page-title">🏆 获奖经历</h1>
+                    <div class="certificates-content">
+                        <div class="certificates-section">
+                            <div class="unified-projects-box">
+                                <h2 class="section-title">获奖项目</h2>
+                                <div class="project-bullet-item">
+                                    <span class="project-main">"博文杯"大学生百项实证创新基金项目</span>
+                                    <span class="project-date-badge">2018.06</span><br>
+                                    <span class="project-title">《基于ELECTRE-I法的光谷智能制造服务产业联盟伙伴选择研究》</span><br>
+                                    <span class="project-content">参与项目书的申报书写及项目调研工作，在老师协助下对烽火通信的工作人员进行访谈调研。</span>
+                                </div>
+                                <div class="project-bullet-item">
+                                    <span class="project-main">"博文杯"大学生百项实证创新基金项目 校级结项三等奖</span>
+                                    <span class="project-date-badge">2018.12</span><br>
+                                    <span class="project-title">《基于TAM-TPB集成模型的华中七校校园APP持续使用意愿及影响因素研究》</span><br>
+                                    <span class="project-content">主持并参与项目，与老师进行联系沟通，组织团队完成各项申报书撰写，并在华中七校开展实地调研等活动。</span>
+                                </div>
+                                <div class="project-bullet-item">
+                                    <span class="project-main">国家级大学生创新创业训练计划项目</span>
+                                    <span class="project-date-badge">2019.05</span><br>
+                                    <span class="project-title">《公益捐赠的"最后一公里"-- 基于FUZZY-MADM的捐衣公益供应链优化研究》</span>
+                                </div>
+                                <div class="project-bullet-item">
+                                    <span class="project-main">省级大学生创新创业训练计划项目</span>
+                                    <span class="project-date-badge">2019.05</span><br>
+                                    <span class="project-title">《社区生鲜的魔力: 基于CGP-TAM模型的社区生鲜电商运营模式分析》</span>
+                                </div>
+                                <div class="project-bullet-item">
+                                    <span class="project-main">"博文杯"大学生百项实证创新基金项目</span>
+                                    <span class="project-date-badge">2019.12</span><br>
+                                    <span class="project-title">《基于AIDEES-SEM 模型对公众参与城市微农业的意愿研究》</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certificates-section">
+                            <div class="unified-honors-box">
+                                <h2 class="section-title">获奖荣誉</h2>
+                                <div class="honor-bullet-item">
+                                    <span class="honor-main">优秀奖学金 二等奖</span>
+                                    <span class="honor-date-badge">2018.12.20</span>
+                                </div>
+                                <div class="honor-bullet-item">
+                                    <span class="honor-main">优秀奖学金 三等奖</span>
+                                    <span class="honor-date-badge">2019.12.20</span>
+                                </div>
+                                <div class="honor-bullet-item">
+                                    <span class="honor-main">优秀共青团员</span>
+                                    <span class="honor-date-badge">2019.12</span>
+                                </div>
+                                <div class="honor-bullet-item">
+                                    <span class="honor-main">三好学生</span>
+                                    <span class="honor-date-badge">2019.11</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目作品页面 -->
+            <div class="content-page" id="projectsPage" style="display: none;">
+                <div class="page-container">
+                    <h1 class="page-title">📂 项目作品</h1>
+                    <div class="projects-content">
+                        <div class="project-item">
+                            <h2>采购计划自动化流程优化</h2>
+                            <p>业务分析 & 协助开发 | 2023.08 - 2023.12</p>
+                            <div class="experience-details">
+                                <ul>
+                                    <li>需求分析与方案设计：深入调研用户需求，将其转化为可执行的RPA流程逻辑，撰写结构化需求文档；评估开发难度与周期，协同开发团队明确技术方案与实施路径</li>
+                                    <li>开发支持与流程优化：参与部分功能模块的开发实现，协助完成业务逻辑向自动化脚本的转换，优化开发流程，提升整体构建效率</li>
+                                    <li>测试验证与效果评估：对输出结果进行多轮模拟测试，基于历史数据验证模型，持续调整关键参数并与用户确认需求，实现申购计划与实际耗用匹配度达85%，每周节约计划工时约30分钟，为采购策略优化提供了数据支撑</li>
+                                </ul>
+                            </div>
+                            <div class="project-tech">
+                                <span>RPA流程自动化</span>
+                                <span>需求分析</span>
+                                <span>业务优化</span>
+                                <span>效率提升85%</span>
+                                <span>工时节省30分钟</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <h2>茶文化数字典藏项目</h2>
+                            <p>项目负责人 | 2025.02 - 2025.06</p>
+                            <div class="project-image-container">
+                                <img src="茶文化.png" alt="茶文化项目预览图" class="project-preview-image" />
+                            </div>
+                            <div class="experience-details">
+                                <ul>
+                                    <li>数字化档案建设：参与茶文化历史资料的数字化整理与展示，构建在线茶文化数字典藏平台</li>
+                                    <li>内容策展与呈现：协助设计网站结构与用户界面，通过数字化手段保护和传播中华茶文化传统</li>
+                                    <li>跨学科合作：结合历史学、文化研究与数字技术，探索传统文化数字化传承的新模式</li>
+                                </ul>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://teaculture.omeka.net/" target="_blank" rel="noopener"> 查看更多>> </a>
+                            </div>
+                            <div class="project-tech">
+                                <span>Omeka</span>
+                                <span>数字典藏</span>
+                                <span>文化数字化</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <h2>数字人文项目：唐人街研究平台</h2>
+                            <p>项目负责人 | 2025.02 - 2025.06</p>
+                            <div class="project-image-container">
+                                <img src="唐人街.png" alt="唐人街项目预览图" class="project-preview-image" />
+                            </div>
+                            <div class="experience-details">
+                                <ul>
+                                    <li>项目管理与统筹：主导项目全周期管理，包括制定计划分工、数据内容设计与开发、进度追踪与网页呈现效果的审核，确保项目按时完成</li>
+                                    <li>数据整合与内容设计：基于HTML/CSS完成项目前端主体开发，通过嵌入并配置开源的JavaScript库（如Leaflet.js、Timeline.js），实现了历史地理空间与时间维度的可视化展示</li>
+                                </ul>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://otis-max.github.io/chinatown-research-platform/Chinatown2025.html" target="_blank" rel="noopener"> 查看更多>></a>
+                            </div>
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>Leaflet.js</span>
+                                <span>Timeline.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技能特长页面 -->
+            <div class="content-page" id="skillsPage" style="display: none;">
+                <div class="page-container">
+                    <h1 class="page-title">⚡ 技能特长</h1>
+                    <div class="skills-content">
+                        <div class="skill-category">
+                            <h3>技能</h3>
+                            <div class="skill-dots">
+                                <div class="skill-item">
+                                    <span class="skill-name">  Power BI</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  RPA(流程机器人)</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  MySQL</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  HTML/CSS</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  JavaScript</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  简道云</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  MS Office (PowerPoint, Excel, Word)</span>
+                                </div>
+                               
+                                <div class="skill-item">
+                                    <span class="skill-name">  SPSS</span>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <span class="skill-name">  EndNote</span>
+                                </div>
+                               
+                                <div class="skill-item">
+                                    <span class="skill-name">  剪映</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  Canva</span>
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>语言</h3>
+                            <div class="skill-dots">
+                                <div class="skill-item">
+                                    <span class="skill-name"> 中文</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"> 英文</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>爱好</h3>
+                            <div class="skill-dots">
+                                <div class="skill-item">
+                                    <span class="skill-name">  游泳</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  跑步</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  播客</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">  电影</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-summary">
+                        <p>熟练掌握多种数据分析与可视化工具，具备RPA流程自动化开发经验。
+                        具有良好的英语沟通能力，能够适应国际化工作环境。
+                        持续学习新技术，不断提升专业技能水平。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 联系方式页面 -->
+            <div class="content-page" id="contactPage" style="display: none;">
+                <div class="page-container contact-container">
+                    <h1 class="page-title">📞 联系方式</h1>
+                    <div class="contact-content">
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-info">
+                                <h3>手机号码</h3>
+                                <p>180-2555-5036</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-info">
+                                <h3>电子邮箱</h3>
+                                <p>yoooooli@126.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 桌面图标 -->
+            <div class="desktop-icons">
+                <div class="desktop-icons-container">
+                    <div class="desktop-icon" data-page="education">
+                        <div class="desktop-icon-img edu-icon"><img src="images/教育背景.png" alt="教育背景" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">教育背景</span>
+                    </div>
+                    <div class="desktop-icon" data-page="experience">
+                        <div class="desktop-icon-img exp-icon"><img src="images/工作经历.png" alt="工作经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">工作经历</span>
+                    </div>
+                    <div class="desktop-icon" data-page="campus">
+                        <div class="desktop-icon-img campus-icon"><img src="images/校园经历.png" alt="校园经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">校园经历</span>
+                    </div>
+                    <div class="desktop-icon" data-page="certificates">
+                        <div class="desktop-icon-img cert-icon"><img src="images/获奖经历.png" alt="获奖经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">获奖经历</span>
+                    </div>
+                    <div class="desktop-icon" data-page="projects">
+                        <div class="desktop-icon-img proj-icon"><img src="images/项目作品.png" alt="项目作品" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">项目作品</span>
+                    </div>
+                    <div class="desktop-icon" data-page="skills">
+                        <div class="desktop-icon-img skills-icon"><img src="images/技能特长.png" alt="技能特长" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="desktop-icon-label">技能特长</span>
+                    </div>
+                    <div class="desktop-icon" data-page="contact">
+                        <div class="desktop-icon-img contact-icon"></div>
+                        <span class="desktop-icon-label">联系方式</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部导航栏 -->
+            <div class="dock" id="bottomDock">
+                <div class="dock-container">
+                    <div class="dock-item" data-page="home">
+                        <div class="dock-icon home-icon"><img src="images/主页面.png" alt="主页面" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">主页面</span>
+                    </div>
+                    <div class="dock-item" data-page="education">
+                        <div class="dock-icon edu-icon"></div>
+                        <span class="dock-label">教育背景</span>
+                    </div>
+                    <div class="dock-item" data-page="experience">
+                        <div class="dock-icon exp-icon"><img src="images/工作经历.png" alt="工作经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">工作经历</span>
+                    </div>
+                    <div class="dock-item" data-page="campus">
+                        <div class="dock-icon campus-icon"><img src="images/校园经历.png" alt="校园经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">校园经历</span>
+                    </div>
+                    <div class="dock-item" data-page="certificates">
+                        <div class="dock-icon cert-icon"><img src="images/获奖经历.png" alt="获奖经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">获奖经历</span>
+                    </div>
+                    <div class="dock-item" data-page="projects">
+                        <div class="dock-icon proj-icon"><img src="images/项目作品.png" alt="项目作品" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">项目作品</span>
+                    </div>
+                    <div class="dock-item" data-page="skills">
+                        <div class="dock-icon skills-icon"><img src="images/技能特长.png" alt="技能特长" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">技能特长</span>
+                    </div>
+                    <div class="dock-item" data-page="contact">
+                        <div class="dock-icon contact-icon"></div>
+                        <span class="dock-label">联系方式</span>
+                    </div>
+                    <div class="dock-item trash-item">
+                        <div class="dock-icon trash-icon"><img src="images/废纸篓.png" alt="废纸篓" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                        <span class="dock-label">废纸篓</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 侧边栏 -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                </div>
+                <div class="sidebar-content">
+                    <div class="sidebar-dock">
+                        <div class="sidebar-dock-item" data-page="home">
+                            <div class="sidebar-dock-icon home-icon"><img src="images/主页面.png" alt="主页面" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">主页面</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="education">
+                            <div class="sidebar-dock-icon edu-icon"></div>
+                            <span class="sidebar-dock-label">教育背景</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="experience">
+                            <div class="sidebar-dock-icon exp-icon"><img src="images/工作经历.png" alt="工作经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">工作经历</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="campus">
+                            <div class="sidebar-dock-icon campus-icon"><img src="images/校园经历.png" alt="校园经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">校园经历</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="skills">
+                            <div class="sidebar-dock-icon skills-icon"><img src="images/技能特长.png" alt="技能特长" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">技能特长</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="projects">
+                            <div class="sidebar-dock-icon proj-icon"><img src="images/项目作品.png" alt="项目作品" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">项目作品</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="certificates">
+                            <div class="sidebar-dock-icon cert-icon"><img src="images/获奖经历.png" alt="获奖经历" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                            <span class="sidebar-dock-label">获奖经历</span>
+                        </div>
+                        <div class="sidebar-dock-item" data-page="contact">
+                            <div class="sidebar-dock-icon contact-icon"></div>
+                            <span class="sidebar-dock-label">联系方式</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 像素小人 -->
+            <div class="pixel-character" id="pixelCharacter">
+                <img src="像素小人.gif" alt="我的像素小人" class="character-image" id="characterImage" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <div class="character-sprite" style="display: none;"></div>
+                <div class="character-speech" id="characterSpeech"></div>
+            </div>
+
+            <!-- 时钟组件 -->
+            <div class="clock-widget" id="clockWidget">
+                <div class="clock-container">
+                    <div class="analog-clock">
+                        <div class="clock-face">
+                            <div class="clock-hand hour-hand" id="hourHand"></div>
+                            <div class="clock-hand minute-hand" id="minuteHand"></div>
+                            <div class="clock-hand second-hand" id="secondHand"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                    </div>
+                    <div class="digital-clock">
+                        <div class="digital-time" id="digitalTime"></div>
+                        <div class="digital-date" id="digitalDate"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日历组件 -->
+            <div class="calendar-widget" id="calendarWidget">
+                <div class="calendar-container">
+                    <div class="calendar" id="calendar"></div>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- 登录和页面切换功能的脚本 -->
+    <script>
+        // 登录功能
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - starting initialization');
+            const loginScreen = document.getElementById('loginScreen');
+            const desktop = document.getElementById('desktop');
+            const enterButton = document.getElementById('enterButton');
+
+            // 点击进入按钮功能
+            enterButton.addEventListener('click', function() {
+                console.log('Enter button clicked');
+
+                // 保存原始文本
+                const originalText = this.textContent;
+
+                // 变为"正在启动..."
+                this.textContent = '正在启动...';
+                this.disabled = true;
+
+                // 延迟显示桌面，实现启动动画
+                setTimeout(() => {
+                    loginScreen.style.display = 'none';
+                    desktop.style.display = 'block';
+                    desktop.style.opacity = '1';
+
+                    // 显示导航栏
+                    const dock = document.getElementById('bottomDock');
+                    if (dock) {
+                        dock.style.display = 'block';
+                    }
+
+                    // 重新初始化日历确保功能正常
+                    setTimeout(() => {
+                        if (typeof initCalendar === 'function') {
+                            initCalendar();
+                            console.log('日历重新初始化完成');
+                        }
+                    }, 100);
+                }, 800); // 800毫秒启动动画
+            });
+
+            // 左侧栏交互效果
+            const desktopIconsContainer = document.querySelector('.desktop-icons');
+            const container = desktopIconsContainer.querySelector('.desktop-icons-container');
+            let hideTimeout;
+
+            function showContainer() {
+                clearTimeout(hideTimeout);
+                container.style.transform = 'translateX(0)';
+            }
+
+            function hideContainer() {
+                hideTimeout = setTimeout(() => {
+                    container.style.transform = 'translateX(-100%)';
+                }, 300);
+            }
+
+            // 鼠标进入触发区域时显示
+            desktopIconsContainer.addEventListener('mouseenter', showContainer);
+
+            // 鼠标进入容器时保持显示
+            container.addEventListener('mouseenter', showContainer);
+
+            // 鼠标离开整个区域时隐藏
+            desktopIconsContainer.addEventListener('mouseleave', (e) => {
+                // 只有当鼠标完全离开整个容器时才隐藏
+                if (!desktopIconsContainer.contains(e.relatedTarget)) {
+                    hideContainer();
+                }
+            });
+
+            // 鼠标离开容器时检查是否真的离开了
+            container.addEventListener('mouseleave', (e) => {
+                // 如果鼠标没有进入desktopIconsContainer的其他部分，则隐藏
+                if (!desktopIconsContainer.contains(e.relatedTarget)) {
+                    hideContainer();
+                }
+            });
+
+            // 桌面图标双击功能
+            const desktopIcons = document.querySelectorAll('.desktop-icon');
+            desktopIcons.forEach(icon => {
+                icon.addEventListener('dblclick', function() {
+                    console.log('双击桌面图标:', this.getAttribute('data-page'));
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+
+                // 添加悬停效果
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            });
+
+            // 导航栏功能
+            const dockItems = document.querySelectorAll('.dock-item');
+            dockItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            });
+
+            // 侧边栏功能
+            const sidebar = document.getElementById('sidebar');
+
+            // 侧边栏链接功能
+            const sidebarDockItems = document.querySelectorAll('.sidebar-dock-item');
+            sidebarDockItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    showPage(page);
+
+                    // 更新active状态
+                    sidebarDockItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+
+            // 显示页面函数
+            function showPage(page) {
+                console.log('显示页面:', page);
+
+                // 隐藏所有页面
+                const allPages = document.querySelectorAll('.content-page');
+                allPages.forEach(pageElement => {
+                    pageElement.classList.remove('active');
+                    pageElement.style.display = 'none';
+                });
+
+                // 显示选中页面
+                if (page && page !== 'home') {
+                    const targetPage = document.getElementById(page + 'Page');
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                        targetPage.style.display = 'block';
+
+                    }
+                }
+
+                // 更新导航栏激活状态
+                dockItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                const activeItem = document.querySelector(`.dock-item[data-page="${page}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            }
+
+
+        // 实时时间和日历功能
+        function updateTime() {
+            const now = new Date();
+            const digitalTimeElement = document.getElementById('digitalTime');
+            const digitalDateElement = document.getElementById('digitalDate');
+
+            if (digitalTimeElement && digitalDateElement) {
+                const timeOptions = {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const dateOptions = {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'long'
+                };
+
+                digitalTimeElement.textContent = now.toLocaleTimeString('zh-CN', timeOptions);
+                digitalDateElement.textContent = now.toLocaleDateString('zh-CN', dateOptions);
+
+                const hours = now.getHours() % 12;
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                const hourAngle = (hours * 30) + (minutes * 0.5);
+                const minuteAngle = (minutes * 6);
+                const secondAngle = (seconds * 6);
+
+                const hourHand = document.getElementById('hourHand');
+                const minuteHand = document.getElementById('minuteHand');
+                const secondHand = document.getElementById('secondHand');
+
+                if (hourHand && minuteHand && secondHand) {
+                    hourHand.style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+                    minuteHand.style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
+                    secondHand.style.transform = `translateX(-50%) rotate(${secondAngle}deg)`;
+                }
+            }
+        }
+
+        // 日历功能
+        window.initCalendar = function() {
+            const calendar = document.getElementById('calendar');
+            if (!calendar) return;
+
+            let year, month;
+            const titleElement = document.querySelector('.calendar-title');
+
+            // 如果存在已保存的年月数据，使用它们；否则使用当前日期
+            if (titleElement && titleElement.dataset.year && titleElement.dataset.month) {
+                year = parseInt(titleElement.dataset.year);
+                month = parseInt(titleElement.dataset.month);
+            } else {
+                const now = new Date();
+                year = now.getFullYear();
+                month = now.getMonth();
+            }
+
+            const months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+            const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+
+            calendar.innerHTML = `
+                <div class="calendar-header">
+                    <button class="calendar-nav" onclick="changeYear(-1)">«</button>
+                    <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
+                    <div class="calendar-title" data-year="${year}" data-month="${month}">
+                        ${year}年 ${months[month]}
+                    </div>
+                    <button class="calendar-nav" onclick="changeMonth(1)">›</button>
+                    <button class="calendar-nav" onclick="changeYear(1)">»</button>
+                </div>
+                <div class="calendar-weekdays">
+                    ${weekdays.map(day => `<div>${day}</div>`).join('')}
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+            `;
+
+            updateCalendarDays(calendar.querySelector('.calendar-title'));
+        }
+
+        window.updateCalendarDays = function(titleElement) {
+            const year = parseInt(titleElement.dataset.year);
+            let month = parseInt(titleElement.dataset.month);
+
+            if (month < 0) {
+                month = 11;
+                titleElement.dataset.year = year - 1;
+                titleElement.dataset.month = month;
+            } else if (month > 11) {
+                month = 0;
+                titleElement.dataset.year = year + 1;
+                titleElement.dataset.month = month;
+            }
+
+            const updatedYear = parseInt(titleElement.dataset.year);
+            const updatedMonth = parseInt(titleElement.dataset.month);
+            const months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+
+            titleElement.textContent = `${updatedYear}年 ${months[updatedMonth]}`;
+
+            const firstDay = new Date(updatedYear, updatedMonth, 1);
+            const lastDay = new Date(updatedYear, updatedMonth + 1, 0);
+            const firstDayOfWeek = firstDay.getDay();
+            const daysInMonth = lastDay.getDate();
+
+            const today = new Date();
+            const isCurrentMonth = today.getFullYear() === updatedYear && today.getMonth() === updatedMonth;
+
+            let daysHTML = '';
+
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                daysHTML += '<div class="calendar-day empty"></div>';
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isToday = isCurrentMonth && today.getDate() === day;
+                daysHTML += `<div class="calendar-day${isToday ? ' today' : ''}">${day}</div>`;
+            }
+
+            document.getElementById('calendarDays').innerHTML = daysHTML;
+        }
+
+        window.changeYear = function(delta) {
+            const titleElement = document.querySelector('.calendar-title');
+            let year = parseInt(titleElement.dataset.year);
+            const month = parseInt(titleElement.dataset.month);
+
+            year += delta;
+            titleElement.dataset.year = year;
+            initCalendar();
+        }
+
+        window.changeMonth = function(delta) {
+            const titleElement = document.querySelector('.calendar-title');
+            let year = parseInt(titleElement.dataset.year);
+            let month = parseInt(titleElement.dataset.month);
+
+            month += delta;
+
+            if (month < 0) {
+                month = 11;
+                year--;
+            } else if (month > 11) {
+                month = 0;
+                year++;
+            }
+
+            titleElement.dataset.year = year;
+            titleElement.dataset.month = month;
+            initCalendar();
+        }
+
+        // 生成时钟刻度
+        function createClockMarks() {
+            const clockFace = document.querySelector('.clock-face');
+            if (!clockFace) return;
+
+            const marksContainer = document.createElement('div');
+            marksContainer.className = 'clock-marks';
+
+            // 创建12个小时刻度
+            for (let i = 0; i < 12; i++) {
+                const mark = document.createElement('div');
+                mark.className = 'mark hour-mark';
+                mark.style.transform = `rotate(${i * 30}deg)`;
+                marksContainer.appendChild(mark);
+            }
+
+            // 创建60个分钟刻度
+            for (let i = 0; i < 60; i++) {
+                if (i % 5 !== 0) { // 跳过小时刻度位置
+                    const mark = document.createElement('div');
+                    mark.className = 'mark minute-mark';
+                    mark.style.height = '4px';
+                    mark.style.width = '1px';
+                    mark.style.top = '12px';
+                    mark.style.transform = `rotate(${i * 6}deg)`;
+                    marksContainer.appendChild(mark);
+                }
+            }
+
+            clockFace.appendChild(marksContainer);
+        }
+
+        // 创建Mac风格窗口
+        function createWindow(pageId, title) {
+            console.log('创建窗口:', pageId, title);
+
+            // 如果窗口已存在，显示它
+            let window = document.getElementById('window-' + pageId);
+            if (window) {
+                console.log('窗口已存在，显示窗口');
+                window.style.display = 'block';
+                window.classList.add('active');
+                return;
+            }
+
+            // 获取页面内容
+            const pageContent = document.getElementById(pageId + 'Page');
+            if (!pageContent) {
+                console.error('页面内容未找到:', pageId + 'Page');
+                return;
+            }
+
+            // 创建新窗口
+            window = document.createElement('div');
+            window.className = 'window';
+            window.id = 'window-' + pageId;
+            window.style.display = 'none'; // 初始隐藏
+
+            window.innerHTML = `
+                <div class="window-header">
+                    <div class="window-controls">
+                        <button class="control-button close-button" onclick="closeWindow('${pageId}')" title="关闭"></button>
+                        <button class="control-button minimize-button" onclick="minimizeWindow('${pageId}')" title="最小化"></button>
+                        <button class="control-button maximize-button" onclick="maximizeWindow('${pageId}')" title="最大化"></button>
+                    </div>
+                    <div class="window-title">${title}</div>
+                </div>
+                <div class="window-content">
+                    ${pageContent.innerHTML}
+                </div>
+            `;
+
+            document.body.appendChild(window);
+            console.log('窗口已添加到DOM');
+
+            // 设置窗口基本样式和位置
+            window.style.position = 'fixed';
+            window.style.top = '50px';
+            window.style.left = '50px';
+            window.style.width = '800px';
+            window.style.height = '600px';
+            window.style.maxWidth = '90vw';
+            window.style.maxHeight = '90vh';
+
+            // 延迟显示窗口，触发动画
+            setTimeout(() => {
+                window.style.display = 'block';
+                window.classList.add('active');
+                console.log('窗口已显示');
+
+                // 为窗口添加拖拽功能
+                if (typeof makeDraggable === 'function') {
+                    makeDraggable(window);
+                    console.log('为窗口添加拖拽功能:', window.id);
+                }
+            }, 10);
+        }
+
+        // 窗口控制函数
+        window.closeWindow = function(pageId) {
+            console.log('关闭窗口:', pageId);
+            const window = document.getElementById('window-' + pageId);
+            if (window) {
+                window.classList.remove('active');
+                window.style.display = 'none';
+                setTimeout(() => {
+                    if (window.parentNode) {
+                        window.remove();
+                    }
+                }, 300);
+            }
+        };
+
+        window.minimizeWindow = function(pageId) {
+            console.log('最小化窗口:', pageId);
+            const window = document.getElementById('window-' + pageId);
+            if (window) {
+                window.classList.toggle('minimized');
+            }
+        };
+
+        window.maximizeWindow = function(pageId) {
+            console.log('最大化窗口:', pageId);
+            const window = document.getElementById('window-' + pageId);
+            if (window) {
+                window.classList.toggle('maximized');
+            }
+        };
+
+        // 修改页面显示函数以支持窗口
+        function showPage(page) {
+            console.log('显示页面:', page);
+
+            // 隐藏所有普通页面
+            const allPages = document.querySelectorAll('.content-page');
+            allPages.forEach(pageElement => {
+                pageElement.classList.remove('active');
+                pageElement.style.display = 'none';
+            });
+
+            // 如果选择主页，显示桌面
+            if (page === 'home') {
+                // 关闭所有窗口
+                const windows = document.querySelectorAll('.window');
+                windows.forEach(win => win.classList.remove('active'));
+                return;
+            }
+
+            // 为其他页面创建窗口
+            const pageTitle = document.querySelector(`[data-page="${page}"]`)?.textContent || page;
+            createWindow(page, pageTitle);
+
+            // 更新导航栏激活状态
+            const dockItems = document.querySelectorAll('.dock-item');
+            dockItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            const activeItem = document.querySelector(`.dock-item[data-page="${page}"]`);
+            if (activeItem) {
+                activeItem.classList.add('active');
+            }
+        }
+
+        // 初始化
+        updateTime();
+        initCalendar();
+        createClockMarks();
+        setInterval(updateTime, 1000);
+
+        // 确保makeDraggable函数在全局可用
+        window.makeDraggable = function(element) {
+            // 检查是否已经初始化过拖拽
+            if (element.__draggableInitialized) {
+                console.log('窗口已初始化拖拽功能:', element.id);
+                return;
+            }
+
+            console.log('makeDraggable called for element:', element.id);
+
+            const header = element.querySelector('.window-header');
+
+            // 检查是否找到标题栏
+            if (!header) {
+                console.error('未找到window-header元素:', element.id, element);
+                // 尝试修复：重新创建header
+                const windowControls = document.createElement('div');
+                windowControls.className = 'window-header';
+                windowControls.innerHTML = `
+                    <div class="window-controls">
+                        <button class="control-button close-button"></button>
+                        <button class="control-button minimize-button"></button>
+                        <button class="control-button maximize-button"></button>
+                    </div>
+                    <div class="window-title">窗口</div>
+                `;
+                element.insertBefore(windowControls, element.firstChild);
+                console.log('已自动创建window-header:', element.id);
+            }
+
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            function dragStart(e) {
+                // 排除按钮点击
+                if (e.target.closest('.control-button')) {
+                    return false;
+                }
+
+                // 确保点击在标题栏内
+                const header = element.querySelector('.window-header');
+                if (!header.contains(e.target) && e.target !== header) {
+                    return false;
+                }
+
+                console.log('拖拽开始', e.target, header.contains(e.target));
+
+                isDragging = true;
+
+                // 获取鼠标相对于窗口左上角的偏移
+                const rect = element.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+
+                // 添加全局事件监听器
+                document.addEventListener('mousemove', dragMove);
+                document.addEventListener('mouseup', dragEnd);
+
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+
+            function dragMove(e) {
+                if (!isDragging) return;
+
+                console.log('拖拽中:', e.clientX, e.clientY);
+
+                // 计算新位置
+                const x = e.clientX - offsetX;
+                const y = e.clientY - offsetY;
+
+                element.style.left = x + 'px';
+                element.style.top = y + 'px';
+                element.style.transform = 'none';
+
+                e.preventDefault();
+            }
+
+            function dragEnd(e) {
+                if (!isDragging) return;
+
+                console.log('拖拽结束');
+
+                isDragging = false;
+                document.removeEventListener('mousemove', dragMove);
+                document.removeEventListener('mouseup', dragEnd);
+            }
+
+            // 添加拖拽事件监听器到标题栏
+            const finalHeader = element.querySelector('.window-header');
+            finalHeader.addEventListener('mousedown', dragStart);
+
+            console.log('拖拽功能已绑定到窗口:', element.id);
+
+            // 标记已初始化
+            element.__draggableInitialized = true;
+        };
+
+        // 像素小人交互功能
+        function initPixelCharacter() {
+            const character = document.getElementById('pixelCharacter');
+            const characterImage = document.getElementById('characterImage');
+            const speech = document.getElementById('characterSpeech');
+
+            if (!character || !speech) return;
+
+            const lifeLikeGreetings = [
+                '你好！欢迎了解我 👋',
+                '很高兴认识你！😊',
+                '探索我的空间吧 💼',
+                '我觉得数据分析很有趣 📊',
+                '我喜欢游泳，你呢🏊‍',
+                'AI技术让我着迷 🤖',
+                '欢迎查看我的项目作品 🚀',
+                '期待与你深入交流！✨'
+            ];
+
+            const restReminders = [
+                '坐太久啦，起来走走吧！🚶‍♀️',
+                '眼睛累了吗？看看远处 👀',
+                '伸个懒腰，放松一下～ 🤗',
+                '记得活动颈椎哦！🤸‍♀️',
+                '深呼吸，放松心情～ 🌸'
+            ];
+
+            let currentState = 'idle'; // idle, greeting, resting
+            let greetingTimer;
+
+            // 显示问候语
+            function showGreeting(message, duration = 4000) {
+                speech.textContent = message;
+                speech.style.opacity = '1';
+                speech.style.top = '-70px';
+
+                // 清除之前的定时器
+                if (greetingTimer) {
+                    clearTimeout(greetingTimer);
+                }
+
+                // 自动隐藏
+                greetingTimer = setTimeout(() => {
+                    speech.style.opacity = '0';
+                    speech.style.top = '-60px';
+                }, duration);
+            }
+
+            // 随机动作和问候
+            function randomAction() {
+                const actions = ['wave', 'nod', 'stretch', 'blink'];
+                const randomAction = actions[Math.floor(Math.random() * actions.length)];
+
+                // 添加动作动画到图片
+                characterImage.style.animation = 'none';
+                setTimeout(() => {
+                    characterImage.style.animation = `${randomAction} 0.8s ease-in-out`;
+                }, 10);
+
+                // 根据动作选择相应的问候
+                const randomNum = Math.random();
+                if (randomNum < 0.3) {
+                    // 30% 概率显示休息提醒
+                    const reminder = restReminders[Math.floor(Math.random() * restReminders.length)];
+                    showGreeting(reminder, 5000);
+                    currentState = 'resting';
+                } else {
+                    // 70% 概率显示普通问候
+                    const greeting = lifeLikeGreetings[Math.floor(Math.random() * lifeLikeGreetings.length)];
+                    showGreeting(greeting, 4000);
+                    currentState = 'greeting';
+                }
+            }
+
+            // 点击互动
+            character.addEventListener('click', function() {
+                characterImage.style.animation = 'bounce 0.6s ease-in-out';
+
+                const clickResponses = [
+                    '嗨！想了解什么直接问我 😊',
+                    '我的经历都在这里啦！📖',
+                    '技能特长页面有更多详情 💡',
+                    '工作经历部分很精彩哦！⭐',
+                    '点击其他图标查看更多 🎯'
+                ];
+
+                const response = clickResponses[Math.floor(Math.random() * clickResponses.length)];
+                showGreeting(response, 3000);
+            });
+
+            // 初始化问候
+            setTimeout(() => {
+                randomAction();
+            }, 2000);
+
+            // 定期随机动作和问候
+            setInterval(() => {
+                randomAction();
+            }, 12000); // 12秒一次
+
+            // 添加更多动作动画
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = `
+                @keyframes wave {
+                    0%, 100% { transform: rotate(0deg); }
+                    25% { transform: rotate(-8deg); }
+                    75% { transform: rotate(8deg); }
+                }
+                @keyframes nod {
+                    0%, 100% { transform: translateY(0px); }
+                    25% { transform: translateY(-3px); }
+                    75% { transform: translateY(-2px); }
+                }
+                @keyframes stretch {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                }
+                @keyframes blink {
+                    0%, 90%, 100% { opacity: 1; }
+                    95% { opacity: 0.7; }
+                }
+                @keyframes bounce {
+                    0%, 100% { transform: scale(1); }
+                    25% { transform: scale(1.2); }
+                    75% { transform: scale(0.9); }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        }
+
+        // 页面加载完成后初始化像素小人
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initPixelCharacter, 1000); // 延迟1秒确保DOM完全加载
+        });
+    </script>
+</body>
+</html>

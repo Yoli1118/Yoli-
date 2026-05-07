@@ -1,0 +1,2458 @@
+/* Mac Resume - Main Stylesheet */
+
+/* 全局样式重置和基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+}
+
+/* Mac登录界面 */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('background.png') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
+
+.login-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(20px) brightness(0.7);
+    z-index: -1;
+}
+
+.login-content {
+    text-align: center;
+    color: white;
+}
+
+.login-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, #4a9eff 0%, #9c27b0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.login-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.login-avatar span {
+    display: none;
+}
+
+.login-name {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 0.8rem 2rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* 桌面样式 */
+.desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('background.png') center center no-repeat;
+    background-size: cover;
+    display: none;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+@keyframes desktopFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 页面容器样式 */
+.content-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow-y: auto;
+    padding: 100px 20px 120px;
+}
+
+.content-page.active {
+    display: block;
+}
+
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(144, 238, 144, 0.10);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+}
+
+/* Page-specific backgrounds */
+#projectsPage .page-container {
+    background: rgba(144, 238, 144, 0.2) !important; /* Light green background */
+}
+
+#skillsPage .page-container {
+    background: rgba(144, 238, 144, 0.3) !important; /* Light green background */
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+/* 主页面样式 */
+.home-container {
+    max-width: 800px;
+    margin: 100px auto 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    text-align: center;
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.home-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.profile-summary {
+    margin-bottom: 3rem;
+}
+
+.profile-summary h2 {
+    font-size: 2rem;
+    color: #007AFF;
+    margin-bottom: 0.5rem;
+}
+
+.profile-role {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.profile-location {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #007AFF;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 联系方式页面样式 */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 2rem;
+    background: transparent;
+    padding: 0;
+}
+
+.contact-info h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.contact-info p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* 底部导航栏样式 */
+.dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: none; /* 初始隐藏 */
+}
+
+.dock-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 0; /* 移除间隙，通过margin控制 */
+    align-items: flex-end; /* 对齐到底部以实现macOS效果 */
+    max-width: calc(100vw - 40px); /* 确保不超出视口宽度 */
+    overflow-x: auto; /* 允许水平滚动如果内容太多 */
+    overflow-y: hidden; /* 禁止垂直滚动 */
+    scrollbar-width: none; /* Firefox隐藏滚动条 */
+    -ms-overflow-style: none; /* IE隐藏滚动条 */
+}
+
+/* 隐藏webkit滚动条 */
+.dock-container::-webkit-scrollbar {
+    display: none;
+}
+
+.dock-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border-radius: 12px;
+    margin: 0 1px; /* 减小间距防止溢出 */
+    height: 60px; /* 固定高度 */
+    justify-content: flex-end; /* 图标对齐底部 */
+    flex-shrink: 0; /* 防止缩小 */
+}
+
+.dock-item:hover {
+    transform: scale(1.2) translateY(-8px);
+    z-index: 1001;
+}
+
+.dock-item.active {
+    transform: scale(1.1) translateY(-4px);
+    z-index: 1001;
+}
+
+.dock-item:hover .dock-icon {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dock-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove font-size since we're using background images */
+    transition: all 0.15s ease;
+    transform-origin: bottom center; /* 从底部放大 */
+    /* Ensure perfect fit for background images */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* Remove any potential padding/margin */
+    padding: 0;
+    margin: 0;
+    /* Ensure crisp rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Background colors removed for image icons */
+
+.dock-label {
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.2s ease;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 6px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.dock-item.active .dock-icon {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dock-item.trash-item {
+    opacity: 0.8;
+}
+
+/* macOS风格的Dock动画 */
+.dock-item:hover .dock-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Dock图标的弹跳动画 */
+@keyframes dockBounce {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.1) translateY(-5px); }
+}
+
+.dock-item.launching .dock-icon {
+    animation: dockBounce 0.6s ease;
+}
+
+/* 桌面图标样式 */
+.desktop-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+    z-index: 100;
+    padding: 40px 0;
+    width: 80px;
+    transition: all 0.3s ease;
+}
+
+/* 左侧Dock容器 */
+.desktop-icons-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 0 20px 20px 0;
+    padding: 40px 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+/* 鼠标靠近时展开 */
+.desktop-icons:hover .desktop-icons-container,
+.desktop-icons-container:hover {
+    transform: translateX(0);
+}
+
+/* 收起状态的触发区域 */
+.desktop-icons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: transparent;
+}
+
+/* 美化桌面图标滚动条 */
+.desktop-icons::-webkit-scrollbar {
+    width: 6px;
+}
+
+.desktop-icons::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.desktop-icons::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.desktop-icons::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 8px;
+    border-radius: 12px;
+    user-select: none;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon:active {
+    transform: scale(0.95);
+}
+
+.icon-frame {
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.desktop-icon-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove font-size since we're using background images */
+    box-shadow: none;
+    transition: all 0.2s ease;
+    /* Ensure perfect fit for background images */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* Remove any potential padding/margin */
+    padding: 0;
+    margin: 0;
+    /* Ensure crisp rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.desktop-icon:hover .desktop-icon-img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.desktop-icon-label {
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 8px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* macOS风格窗口样式 */
+.window {
+    position: fixed;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    z-index: 1001;
+    width: 800px;
+    height: 600px;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.window.active {
+    display: block;
+}
+
+.window.maximized {
+    width: 95vw !important;
+    height: 95vh !important;
+    top: 2vh !important;
+    left: 2.5vw !important;
+    transform: none !important;
+}
+
+.window.minimized {
+    transform: scale(0.1) translate(-500%, -500%) !important;
+    opacity: 0 !important;
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: linear-gradient(180deg, #f6f6f6 0%, #e8e8e8 100%);
+    border-bottom: 1px solid #d1d1d1;
+    cursor: move;
+    user-select: none;
+    height: 32px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 16px;
+}
+
+.control-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    background: linear-gradient(180deg, #FF6B64 0%, #FF5F57 100%);
+}
+
+.close-button:hover {
+    background: linear-gradient(180deg, #FF7A73 0%, #FF6B64 100%);
+}
+
+.close-button:active {
+    background: linear-gradient(180deg, #E65A53 0%, #E64F48 100%);
+}
+
+.minimize-button {
+    background: linear-gradient(180deg, #FFD93E 0%, #FFBD2E 100%);
+}
+
+.minimize-button:hover {
+    background: linear-gradient(180deg, #FFDC4D 0%, #FFD93E 100%);
+}
+
+.minimize-button:active {
+    background: linear-gradient(180deg, #E6C738 0%, #E6A829 100%);
+}
+
+.maximize-button {
+    background: linear-gradient(180deg, #28CC42 0%, #28CA42 100%);
+}
+
+.maximize-button:hover {
+    background: linear-gradient(180deg, #32DF4C 0%, #28CC42 100%);
+}
+
+.maximize-button:active {
+    background: linear-gradient(180deg, #24B83C 0%, #24B63C 100%);
+}
+
+.window-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.window-content {
+    padding: 30px;
+    overflow-y: auto;
+    height: calc(100% - 32px);
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 100px);
+}
+
+/* 窗口打开动画 */
+@keyframes windowOpen {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.window.active {
+    animation: windowOpen 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 窗口内容样式增强 */
+.window-content {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.window-content h1 {
+    color: #1d1d1f;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.window-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #007AFF, #0056CC);
+    border-radius: 2px;
+}
+
+.window-content h2 {
+    color: #1d1d1f;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 30px 0 20px 0;
+    position: relative;
+    padding-left: 15px;
+}
+
+.window-content h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(180deg, #007AFF, #0056CC);
+    border-radius: 2px;
+}
+
+.window-content h3 {
+    color: #1d1d1f;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 25px 0 15px 0;
+}
+
+.window-content p {
+    color: #424245;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.window-content ul {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.window-content li {
+    color: #424245;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 16px;
+}
+
+.window-content li::before {
+    content: '•';
+    position: absolute;
+    left: 10px;
+    color: #007AFF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.window-content strong {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+/* 内容卡片样式 */
+.window-content .education-item,
+.window-content .experience-item,
+.window-content .project-item,
+.window-content .contact-item,
+.window-content .skill-category {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 248, 248, 0.8) 100%);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.window-content .education-item:hover,
+.window-content .experience-item:hover,
+.window-content .project-item:hover,
+.window-content .contact-item:hover,
+.window-content .skill-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Project image containers */
+.project-image-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.project-preview-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-preview-image:hover {
+    transform: scale(1.02);
+}
+
+#skillsPage .skills-content {
+    background: rgba(144, 238, 144, 0.95); 
+    border-radius: 16px;
+    padding: 20px;
+}
+
+/* Skills dot notation styles */
+.skill-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-dots .skill-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(144, 238, 144, 0.2);
+}
+
+.skill-dots .skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-dots .skill-name {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.skill-dots .skill-name::before {
+    content: "•";
+    color: #90EE90;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Hide skill bars when using dot notation */
+.skill-dots .skill-bar-container {
+    display: none;
+}
+
+.window-content .education-header,
+.window-content .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.window-content .education-date,
+.window-content .experience-date {
+    background: linear-gradient(135deg, #7FB07F, #5F8A5F);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.window-content .project-tech span {
+    display: inline-block;
+    background: linear-gradient(135deg, #34C759, #248A3D);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin: 5px 5px 5px 0;
+    font-weight: 500;
+}
+
+.window-content .experience-tech span {
+    display: inline-block;
+    background: linear-gradient(135deg, #A5C9A5, #7FB07F);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin: 5px 5px 5px 0;
+    font-weight: 500;
+}
+
+/* School title row */
+.school-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+.school-title-row h2 {
+    margin: 0;
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8B4B8B;
+    padding-right: 15px;
+}
+
+.education-card {
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(255, 182, 193, 0.2);
+}
+
+.education-year-badge {
+    background: rgba(255, 182, 193, 0.8);
+    color: #8B4B8B;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 182, 193, 0.5);
+}
+
+/* Education highlights styling - Soft Pink Theme */
+.education-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.highlight-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8B4B8B;
+    background: rgba(255, 182, 193, 0.6);
+    border: 1px solid rgba(255, 182, 193, 0.8);
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+}
+
+.highlight-badge.gpa-excellent,
+.highlight-badge.gpa-good {
+    background: rgba(255, 182, 193, 0.75);
+    color: #8B4B8B;
+    font-weight: 600;
+}
+
+.highlight-badge.degree-highlight {
+    background: rgba(255, 182, 193, 0.6);
+    color: #8B4B8B;
+}
+
+.education-content-unified {
+    margin-top: 20px;
+}
+
+/* Animation for expandable content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.course-section,
+.award-section,
+.project-section {
+    margin: 20px 0;
+}
+
+.course-section h4,
+.award-section h4,
+.project-section h4 {
+    color: #8B4B8B;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Remove old expandable styles */
+.expandable-content,
+.expandable-section {
+    display: none !important;
+}
+
+/* Expand button styling */
+.compact-expand-btn {
+    background: rgba(255, 182, 193, 0.6);
+    border: 1px solid rgba(255, 182, 193, 0.8);
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 10px 0;
+    color: #8B4B8B;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+}
+
+.compact-expand-btn:hover {
+    background: rgba(255, 182, 193, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
+}
+
+/* Key highlights styling */
+.key-highlights {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, rgba(144, 238, 144, 0.15) 0%, rgba(60, 179, 113, 0.15) 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(144, 238, 144, 0.3);
+}
+
+.highlight {
+    text-align: center;
+    flex: 1;
+}
+
+.highlight-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5F8A5F;
+    margin-bottom: 5px;
+}
+
+.highlight-label {
+    font-size: 0.9rem;
+    color: #4A6B4A;
+    font-weight: 500;
+}
+
+/* Experience details styling */
+.experience-details {
+    margin: 20px 0;
+}
+
+.experience-details ul {
+    padding-left: 20px;
+}
+
+.experience-details li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.experience-details li strong {
+    color: #6BAD6B;
+    font-weight: 600;
+}
+
+/* 联系信息样式 */
+.window-content .contact-info {
+    flex: 1;
+}
+
+.window-content .contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #007AFF, #0056CC);
+}
+
+
+/* 🎨 图标替换样式 - 为图片图标准备 */
+/*
+ * 使用说明：
+ * 1. 将所有图片文件放在 images/ 文件夹中
+ * 2. 取消下面相应注释，替换图片文件名即可
+ * 3. 支持的图片格式：PNG, JPG, SVG
+ */
+
+/* 桌面图标 - 图片替换 */
+.desktop-icon-img {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
+
+.desktop-icon-img.home-icon {
+    background-image: url('images/主页面.png');
+}
+
+.desktop-icon-img.edu-icon {
+    background-image: url('images/教育背景.png');
+}
+
+.desktop-icon-img.exp-icon {
+    background-image: url('images/工作经历.png');
+}
+
+.desktop-icon-img.campus-icon {
+    background-image: url('images/校园经历.png');
+}
+
+.desktop-icon-img.cert-icon {
+    background-image: url('images/获奖经历.png');
+}
+
+.desktop-icon-img.proj-icon {
+    background-image: url('images/项目作品.png');
+}
+
+.desktop-icon-img.skills-icon {
+    background-image: url('images/技能特长.png');
+}
+
+.desktop-icon-img.contact-icon {
+    background-image: url('images/联系方式.png');
+}
+
+/* Dock图标 - 图片替换 */
+.dock-icon {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
+
+.dock-icon.home-icon {
+    background-image: url('images/主页面.png');
+}
+
+.dock-icon.edu-icon {
+    background-image: url('images/教育背景.png');
+}
+
+.dock-icon.exp-icon {
+    background-image: url('images/工作经历.png');
+}
+
+.dock-icon.campus-icon {
+    background-image: url('images/校园经历.png');
+}
+
+.dock-icon.cert-icon {
+    background-image: url('images/获奖经历.png');
+}
+
+.dock-icon.proj-icon {
+    background-image: url('images/项目作品.png');
+}
+
+.dock-icon.skills-icon {
+    background-image: url('images/技能特长.png');
+}
+
+.dock-icon.contact-icon {
+    background-image: url('images/联系方式.png');
+    background-size: 50px 50px !important; /* 适当调大一点点 */
+}
+
+.dock-icon.trash-icon {
+    background-image: url('images/废纸篓.png');
+}
+
+/* 移除emoji显示，为图片让路 */
+.desktop-icon-img::before,
+.dock-icon::before {
+    content: none !important;
+}
+
+.desktop-icon-img *,
+.dock-icon * {
+    display: none;
+}
+
+/* 📱 响应式调整 */
+@media (max-width: 768px) {
+    /* 移动端图片尺寸调整 */
+    .desktop-icon-img {
+        background-size: contain !important;
+    }
+
+    .dock-icon {
+        background-size: contain !important;
+    }
+
+    /* 调整dock容器padding防止溢出 */
+    .dock-container {
+        padding: 10px 15px;
+    }
+
+    .dock-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dock-item {
+        height: 50px;
+    }
+}
+
+/* 🎨 图片加载优化 */
+/* 为图片图标添加优雅的加载和错误处理 */
+.desktop-icon-img, .dock-icon {
+    /* 添加微妙的背景作为加载占位符 */
+    background-color: transparent !important;
+    /* 确保平滑的图像渲染 */
+    image-rendering: auto;
+    /* 确保背景图片显示 */
+    background-image: var(--icon-image, none);
+}
+
+/* 移除伪元素干扰 */
+.desktop-icon-img::before,
+.dock-icon::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* 🎮 像素小人样式 */
+.pixel-character {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.character-image {
+    width: 160px; /* 从120px增大到160px */
+    height: 160px; /* 从120px增大到160px */
+    object-fit: cover;
+    border-radius: 20px; /* 从16px增加到20px */
+    animation: characterIdle 2.5s ease-in-out infinite, pulse 4s ease-in-out infinite;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) brightness(1.05) contrast(1.1);
+    transition: all 0.3s ease;
+    border: 4px solid rgba(255, 255, 255, 0.4); /* 从3px增加到4px */
+}
+
+.character-sprite {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4a9eff 0%, #9c27b0 100%);
+    border-radius: 12px;
+    position: relative;
+    animation: characterIdle 3s ease-in-out infinite;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.character-sprite::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    animation: eyesBlink 3s ease-in-out infinite;
+}
+
+.character-sprite::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 8px;
+    background: white;
+    border-radius: 4px;
+    animation: mouthSmile 2s ease-in-out infinite;
+}
+
+.character-speech {
+    position: absolute;
+    top: -120px; /* 从-90px调整为-120px以适应更大的头像 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 15px 25px; /* 从12px 20px增加 */
+    border-radius: 30px; /* 从25px增大到30px */
+    font-size: 18px; /* 从16px增大到18px */
+    color: #333;
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* 增强阴影 */
+    white-space: nowrap;
+    border: 2px solid rgba(255, 255, 255, 0.4); /* 从1px增加到2px */
+    backdrop-filter: blur(10px);
+}
+
+.character-speech::before {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* 从-12px调整为-15px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent; /* 从12px增加到15px */
+    border-right: 15px solid transparent; /* 从12px增加到15px */
+    border-top: 15px solid rgba(255, 255, 255, 0.98); /* 从12px增加到15px */
+}
+
+.pixel-character:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.pixel-character:hover .character-speech {
+    opacity: 1;
+    top: -130px; /* 从-100px调整为-130px */
+}
+
+.pixel-character:hover .character-sprite {
+    animation: characterWave 0.5s ease-in-out;
+}
+
+.pixel-character:hover .character-sprite::before {
+    animation: eyesHappy 0.5s ease-in-out;
+}
+
+.pixel-character:hover .character-sprite::after {
+    animation: mouthHappy 0.5s ease-in-out;
+}
+
+@keyframes characterIdle {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    15% { transform: translateY(-5px) rotate(-2deg) scale(1.02); }
+    30% { transform: translateY(-3px) rotate(1deg) scale(1.01); }
+    45% { transform: translateY(-6px) rotate(0deg) scale(1.03); }
+    60% { transform: translateY(-2px) rotate(-1deg) scale(1.01); }
+    75% { transform: translateY(-4px) rotate(2deg) scale(1.02); }
+    90% { transform: translateY(-1px) rotate(0deg) scale(1); }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) brightness(1.05) contrast(1.1);
+    }
+    50% {
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4)) brightness(1.1) contrast(1.15);
+    }
+}
+
+@keyframes eyesBlink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes mouthSmile {
+    0%, 100% { width: 24px; }
+    50% { width: 28px; }
+}
+
+@keyframes characterWave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes eyesHappy {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes mouthHappy {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.3); }
+}
+
+/* 🕐 时钟组件样式 */
+.clock-widget {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    width: 150px;
+    pointer-events: auto;
+}
+
+/* 🕐 macOS风格圆形时钟 */
+.analog-clock {
+    text-align: center;
+}
+
+.clock-face {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    box-shadow:
+        inset 0 2px 3px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 0 auto 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #1d1d1f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* 时钟指针 */
+.hour-hand,
+.minute-hand,
+.second-hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: center bottom;
+    border-radius: 2px;
+    z-index: 5;
+}
+
+.hour-hand {
+    width: 4px;
+    height: 28px;
+    background: #1d1d1f;
+    border-radius: 4px;
+}
+
+.minute-hand {
+    width: 3px;
+    height: 41px;
+    background: #1d1d1f;
+    border-radius: 3px;
+}
+
+.second-hand {
+    width: 1px;
+    height: 46px;
+    background: #ff3b30;
+    border-radius: 1px;
+}
+
+/* 时钟刻度 */
+.clock-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 分钟刻度向上移动 */
+.minute-mark {
+    top: 5px !important; /* 从原来的12px减少到8px，向上移动 */
+}
+
+.mark {
+    position: absolute;
+    width: 1.5px;
+    height: 7.5px;
+    background: rgba(0, 0, 0, 0.4);
+    left: 50%;
+    top: 3px; /* 从4px调整为2px，向上移动 */
+    margin-left: -0.75px;
+    transform-origin: 50% 56.5px; /* 从56px调整为58px，配合向上移动 */
+    border-radius: 1px;
+}
+
+.mark-1 { transform: translate(-50%, -50%) rotate(30deg); }
+.mark-2 { transform: translate(-50%, -50%) rotate(60deg); }
+.mark-3 {
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 3px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-left: -1.5px;
+}
+.mark-4 { transform: translate(-50%, -50%) rotate(120deg); }
+.mark-5 { transform: translate(-50%, -50%) rotate(150deg); }
+.mark-6 {
+    transform: translate(-50%, -50%) rotate(180deg);
+    width: 3px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-left: -1.5px;
+}
+.mark-7 { transform: translate(-50%, -50%) rotate(210deg); }
+.mark-8 { transform: translate(-50%, -50%) rotate(240deg); }
+.mark-9 {
+    transform: translate(-50%, -50%) rotate(270deg);
+    width: 3px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-left: -1.5px;
+}
+.mark-10 { transform: translate(-50%, -50%) rotate(300deg); }
+.mark-11 { transform: translate(-50%, -50%) rotate(330deg); }
+.mark-12 {
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 3px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-left: -1.5px;
+}
+
+.digital-time {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 4px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+    letter-spacing: -0.3px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.digital-date {
+    font-size: 0.75rem;
+    color: #333333;
+    font-weight: 600;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+/* 📅 日历组件样式 - Square Container */
+.calendar-widget {
+    position: absolute;
+    top: 300px; /* 进一步下移日历位置 */
+    right: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    width: 200px;
+    height: 200px; /* 固定高度，确保正方形 */
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    height: 32px;
+}
+
+.calendar-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    flex: 1;
+    text-align: center;
+}
+
+.calendar-nav {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #007AFF;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-nav:hover {
+    background: rgba(0, 122, 255, 0.1);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 4px;
+    height: 16px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    flex: 1;
+    min-height: 0;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    border-radius: 3px;
+    color: #000;
+    font-weight: 500;
+    min-height: 0;
+}
+
+.calendar-day:hover {
+    background: rgba(0, 122, 255, 0.15);
+}
+
+.calendar-day.today {
+    background: linear-gradient(135deg, #007AFF, #0056CC);
+    color: white;
+    font-weight: 600;
+}
+
+.calendar-day.empty {
+    opacity: 0;
+    cursor: default;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .clock-widget,
+    .calendar-widget {
+        position: static;
+        margin: 15px auto;
+        padding: 15px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .clock-face {
+        width: 120px;
+        height: 120px;
+    }
+
+    .calendar-widget {
+        margin-top: 20px; /* 移动端增加间距 */
+    }
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 80px !important; /* 大幅减小宽度 */
+    height: 100vh !important;
+    background: rgba(255, 255, 255, 0.1) !important; /* 更透明类似dock */
+    backdrop-filter: blur(20px) !important; /* 添加毛玻璃效果 */
+    z-index: 2000 !important;
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.15) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    padding: 20px 0 !important; /* 添加上下padding */
+}
+
+.sidebar-header {
+    display: none !important; /* 隐藏空header */
+}
+
+
+.sidebar-content {
+    flex: 1 !important;
+    padding: 30px 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 3px !important;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.sidebar-dock {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.sidebar-dock-item {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    height: auto !important; /* 自适应高度 */
+    justify-content: flex-end !important; /* 图标对齐底部 */
+    flex-shrink: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+.sidebar-dock-item:hover {
+    transform: scale(1.2) !important;
+    z-index: 1001 !important;
+}
+
+.sidebar-dock-item.active {
+    transform: scale(1.1) !important;
+    z-index: 1001 !important;
+}
+
+.sidebar-dock-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+    transform-origin: bottom center !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+}
+
+.sidebar-dock-item:hover .sidebar-dock-icon {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sidebar-dock-item.active .sidebar-dock-icon {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 侧边栏dock图标背景图片 */
+.sidebar-dock-icon.edu-icon {
+    background-image: url('images/教育背景.png');
+}
+
+.sidebar-dock-icon.contact-icon {
+    background-image: url('images/联系方式.png');
+    width: 48px !important;
+    height: 48px !important;
+    background-size: 50px 50px !important; /* 适当调大一点点 */
+    margin: 0 !important;
+    padding: 0 !important;
+    background-position: center !important;
+}
+
+/* 确保侧边栏dock图标正常显示 */
+.sidebar-dock-icon::before {
+    content: none !important;
+}
+
+.sidebar-dock-icon * {
+    display: block !important; /* 确保img标签显示 */
+}
+
+/* 侧边栏dock标签样式 */
+.sidebar-dock-label {
+    font-size: 11px !important;
+    color: white !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    white-space: nowrap !important;
+    margin-top: 6px !important;
+    max-width: 70px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.2 !important;
+}
+
+/* 简约响应式教育页面样式 */
+.education-container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbbf24 100%) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.education-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px !important;
+}
+
+.modern-edu-item {
+    background: rgba(245, 245, 245, 0.8) !important;
+    border: 1px solid rgba(200, 200, 200, 0.5) !important;
+    border-radius: 16px !important;
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+.modern-edu-item:hover {
+    background: rgba(245, 245, 245, 0.95) !important;
+    border-color: rgba(200, 200, 200, 0.7) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-1px) !important;
+}
+
+.education-card {
+    border-radius: 20px !important;
+    padding: 0 !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    margin: 0 !important;
+}
+
+
+.modern-edu-header {
+    padding: 25px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.school-info h2 {
+    color: white !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.2 !important;
+}
+
+.education-date {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1rem !important;
+}
+
+.education-body {
+    background: white !important;
+    padding: 25px !important;
+}
+
+.info-grid {
+    display: flex !important;
+    justify-content: space-around !important;
+    gap: 15px !important;
+    margin-bottom: 25px !important;
+    flex-wrap: wrap !important;
+}
+
+.info-item {
+    background: #f9fafb !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+    text-align: center !important;
+    min-width: 120px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.info-item.highlight {
+    background: #fef3c7 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.info-label {
+    display: block !important;
+    font-size: 0.85rem !important;
+    color: #6b7280 !important;
+    margin-bottom: 6px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.info-value {
+    display: block !important;
+    font-size: 1.1rem !important;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+
+.section-title {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: #7c3aed !important;
+    margin: 0 0 20px 0 !important;
+    text-align: center !important;
+}
+
+.courses-section {
+    margin-bottom: 30px !important;
+}
+
+.course-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    justify-content: flex-start !important;
+    margin: 10px 0 !important;
+}
+
+.course-item {
+    background: rgba(255, 182, 193, 0.4) !important;
+    color: #8B4B8B !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 182, 193, 0.6) !important;
+    margin: 2px !important;
+}
+
+
+.projects-section, .awards-section {
+    margin-bottom: 15px !important;
+}
+
+.projects-section, .awards-section {
+    margin-bottom: 20px !important;
+    text-align: center !important;
+}
+
+.project-tags, .award-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    justify-content: flex-start !important;
+    margin: 10px 0 !important;
+}
+
+.project-tag, .award-tag {
+    background: rgba(255, 182, 193, 0.4) !important;
+    color: #8B4B8B !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 182, 193, 0.6) !important;
+    margin: 2px !important;
+}
+
+/* 展开按钮样式 */
+.expandable-section {
+    margin-bottom: 15px !important;
+}
+
+.compact-expand-btn {
+    background: #f3e8ff !important;
+    color: #7c3aed !important;
+    border: 1px solid #e9d5ff !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    margin-bottom: 10px !important;
+    text-align: left !important;
+}
+
+.compact-expand-btn:hover {
+    background: #e9d5ff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15) !important;
+}
+
+.compact-expand-btn:active {
+    transform: translateY(0) !important;
+}
+
+.expandable-content {
+    background: #fafafa !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    border: 2px solid #f3e8ff !important;
+    animation: fadeIn 0.3s ease-in-out !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .education-container {
+        padding: 15px !important;
+    }
+
+    .education-card {
+        margin: 0 5px !important;
+        border-radius: 12px !important;
+    }
+
+    .modern-edu-header {
+        padding: 15px !important;
+        gap: 10px !important;
+    }
+
+    .school-badge {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .school-icon {
+        font-size: 1.5rem !important;
+    }
+
+    .school-info h2 {
+        font-size: 1.2rem !important;
+    }
+
+    .education-body {
+        padding: 15px !important;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .course-buttons {
+        gap: 6px !important;
+    }
+
+    .course-btn {
+        padding: 5px 10px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-container {
+        padding: 10px !important;
+    }
+
+    .modern-edu-item {
+        margin-bottom: 15px !important;
+    }
+
+    .modern-edu-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 8px !important;
+    }
+
+    .school-info h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .course-details {
+        padding: 12px !important;
+    }
+}
+
+
+/*  񽱾   ҳ    ʽ */
+.certificate-container {
+    background: linear-gradient(135deg, rgba(254, 243, 199, 0.6) 0%, rgba(253, 230, 138, 0.6) 50%, rgba(251, 191, 36, 0.6) 100%) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+    padding: 30px !important;
+}
+
+.certificates-content {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.certificates-section {
+    margin-bottom: 40px !important;
+}
+
+.section-title {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #374151 !important;
+    margin: 0 0 20px 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    letter-spacing: -0.5px !important;
+}
+
+.award-projects {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.award-item {
+    background: white !important;
+    border-radius: 16px !important;
+    padding: 25px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    border-left: 5px solid #f59e0b !important;
+}
+
+.award-item h3 {
+    color: #92400e !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.award-date {
+    display: inline-block !important;
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 15px !important;
+}
+
+.project-name {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin: 0 0 10px 0 !important;
+    font-style: italic !important;
+}
+
+.project-description {
+    color: #6b7280 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+.unified-projects-box {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06) !important;
+    text-align: left !important;
+}
+
+.project-bullet-item {
+    color: #374151 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    padding: 15px 0 !important;
+    border-bottom: 1px solid #fef3c7 !important;
+    text-align: left !important;
+}
+
+.project-main {
+    color: #92400e !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    margin-right: 10px !important;
+}
+
+.project-date-badge {
+    background: #f59e0b !important;
+    color: white !important;
+    padding: 3px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin-bottom: 8px !important;
+}
+
+.project-title {
+    color: #374151 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+}
+
+.project-content {
+    color: #6b7280 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    display: block !important;
+}
+
+
+.project-bullet-item:last-child {
+    border-bottom: none !important;
+}
+
+.honor-main {
+    color: #92400e !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin-right: 10px !important;
+}
+
+.honor-date-badge {
+    background: #f59e0b !important;
+    color: white !important;
+    padding: 2px 8px !important;
+    border-radius: 15px !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+}
+
+.unified-honors-box {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06) !important;
+    text-align: left !important;
+}
+
+.honor-bullet-item {
+    color: #92400e !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #fef3c7 !important;
+    text-align: left !important;
+}
+
+.honor-bullet-item:last-child {
+    border-bottom: none !important;
+}
+
+/*   Ӧʽ    */
+@media (max-width: 768px) {
+    .certificate-container {
+        padding: 20px !important;
+    }
+    
+    .honor-item {
+        min-width: 100% !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+    }
+    
+    .award-item {
+        padding: 20px !important;
+    }
+}
+
+
+/* У԰    ҳ    ʽ */
+.campus-container {
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.6) 0%, rgba(135, 206, 250, 0.6) 50%, rgba(100, 149, 237, 0.6) 100%) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+    padding: 30px !important;
+}
+
+.campus-content {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.campus-item {
+    background: white !important;
+    border-radius: 16px !important;
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    border-left: 5px solid #4169E1 !important;
+}
+
+.campus-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+}
+
+.campus-header h2 {
+    color: #1e40af !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+.campus-date {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+    padding: 5px 12px !important;
+    border-radius: 15px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+}
+
+.campus-details ul {
+    margin: 0 !important;
+    padding-left: 20px !important;
+}
+
+.campus-details li {
+    color: #374151 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 8px !important;
+}
+
+
+/*   ϵ  ʽҳ    ʽ */
+.contact-container {
+    background: linear-gradient(135deg, rgba(255, 255, 150, 0.6) 0%, rgba(255, 255, 200, 0.6) 50%, rgba(255, 255, 100, 0.6) 100%) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+    padding: 40px !important;
+}
+
+.contact-content {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+.contact-item {
+    display: flex !important;
+    align-items: center !important;
+    background: white !important;
+    padding: 25px !important;
+    border-radius: 16px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    border-left: 5px solid #f59e0b !important;
+    transition: all 0.3s ease !important;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.contact-icon {
+    font-size: 2.5rem !important;
+    margin-right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+.contact-info h3 {
+    margin: 0 0 8px 0 !important;
+    color: #92400e !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+}
+
+.contact-info p {
+    margin: 0 !important;
+    color: #374151 !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+}
