@@ -1131,35 +1131,35 @@ body {
 }
 
 .desktop-icon-img.home-icon {
-    background-image: url('images/主页面.png');
+    background-image: url('主页面.png');
 }
 
 .desktop-icon-img.edu-icon {
-    background-image: url('images/教育背景.png');
+    background-image: url('教育背景.png');
 }
 
 .desktop-icon-img.exp-icon {
-    background-image: url('images/工作经历.png');
+    background-image: url('工作经历.png');
 }
 
 .desktop-icon-img.campus-icon {
-    background-image: url('images/校园经历.png');
+    background-image: url('校园经历.png');
 }
 
 .desktop-icon-img.cert-icon {
-    background-image: url('images/获奖经历.png');
+    background-image: url('获奖经历.png');
 }
 
 .desktop-icon-img.proj-icon {
-    background-image: url('images/项目作品.png');
+    background-image: url('项目作品.png');
 }
 
 .desktop-icon-img.skills-icon {
-    background-image: url('images/技能特长.png');
+    background-image: url('技能特长.png');
 }
 
 .desktop-icon-img.contact-icon {
-    background-image: url('images/联系方式.png');
+    background-image: url('联系方式.png');
 }
 
 /* Dock图标 - 图片替换 */
@@ -1171,40 +1171,40 @@ body {
 }
 
 .dock-icon.home-icon {
-    background-image: url('images/主页面.png');
+    background-image: url('主页面.png');
 }
 
 .dock-icon.edu-icon {
-    background-image: url('images/教育背景.png');
+    background-image: url('教育背景.png');
 }
 
 .dock-icon.exp-icon {
-    background-image: url('images/工作经历.png');
+    background-image: url('工作经历.png');
 }
 
 .dock-icon.campus-icon {
-    background-image: url('images/校园经历.png');
+    background-image: url('校园经历.png');
 }
 
 .dock-icon.cert-icon {
-    background-image: url('images/获奖经历.png');
+    background-image: url('获奖经历.png');
 }
 
 .dock-icon.proj-icon {
-    background-image: url('images/项目作品.png');
+    background-image: url('项目作品.png');
 }
 
 .dock-icon.skills-icon {
-    background-image: url('images/技能特长.png');
+    background-image: url('技能特长.png');
 }
 
 .dock-icon.contact-icon {
-    background-image: url('images/联系方式.png');
+    background-image: url('联系方式.png');
     background-size: 50px 50px !important; /* 适当调大一点点 */
 }
 
 .dock-icon.trash-icon {
-    background-image: url('images/废纸篓.png');
+    background-image: url('废纸篓.png');
 }
 
 /* 移除emoji显示，为图片让路 */
@@ -1818,11 +1818,11 @@ body {
 
 /* 侧边栏dock图标背景图片 */
 .sidebar-dock-icon.edu-icon {
-    background-image: url('images/教育背景.png');
+    background-image: url('教育背景.png');
 }
 
 .sidebar-dock-icon.contact-icon {
-    background-image: url('images/联系方式.png');
+    background-image: url('联系方式.png');
     width: 48px !important;
     height: 48px !important;
     background-size: 50px 50px !important; /* 适当调大一点点 */
